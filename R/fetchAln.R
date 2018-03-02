@@ -9,12 +9,6 @@
 #'
 #' @return The alignment of interest from the BaliBASE database.
 #'
-#' @param collapse Let the user choose a file name, if none is provided make the name
-#' of the file
-#'
-
-#think about how to collpase the matrix alignment and what data structure you should
-# use to store it
 
 fetchAln <- function(alnID, collapse = FALSE, asMatrix = TRUE) {
 
@@ -28,16 +22,6 @@ fetchAln <- function(alnID, collapse = FALSE, asMatrix = TRUE) {
     return(referenceDB$alignments[[alnID]])
 
   }
-    # if (write == TRUE) {
-    #   fileName = paste(ID, ".fasta", sep = "")
-    #   write.fasta(referenceDB$alignments[[ID]]$seq,
-    #               referenceDB$alignments[[ID]]$name,
-    #               fileName)
-    # }
-
-
 
 }
 
-#need to mkae sure that we're not overwriting files without the user knowing
-#make sure to check if the file exists already (file.exists() function)
