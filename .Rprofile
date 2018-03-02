@@ -1,5 +1,4 @@
 # Rprofile functions
-load("balibaseReferenceDB.rda")
 library(seqinr)
 
 .First <- function() {
@@ -10,7 +9,6 @@ library(seqinr)
       the different commands and options.\n")
 
 }
-
 
 .Last <- function() {
   cat("\nEnding Session at", date(), "\n")

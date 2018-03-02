@@ -1,84 +1,66 @@
-# ReadMsf.R
+#' readMsf.R
+#'
+#' \code{<function>} Return a vector of alignments read from the BaliBASE data base in the form
+#' in matrix form. Each row represents a sequence from the alignment and each column
+#' contains a single character from the sequence. The row names are set as the sequence ID's.
+#' Additionally, return a list of sequence ID's and the alignment ID's they fall under.
+#' readMsf will also populate the alnCategory data frame.
+#'
+#' Details.
+#' @section Input: The reference database from createDB.R
+#'
+#' @param database The reference database from createDB.R
+#'
+#' @return A list containing a vector of alignments and a list of sequence ID's with their
+#' corresponding alignment ID's.
 
-# import the seqinr package to read msf files
-library(seqinr)
+readMsf <- function(database) {
 
-# Initialize the reference database. For details on how it is structured, refer to the data model
+  # Define data storing variables
+  alignment <- list()
+  sequenceCat <- list()
 
-referenceDB <- list()
-alignment <- list()
-sequence <- list()
-index <- 0
+  # Iterate through the directories in the database
+  directories <- c("RV11", "RV12", "RV20", "RV30", "RV40", "RV50")
 
-# Define category descriptions and add them into referenceDB$category
-r11 <- "equi-distant sequences with <20% identity"
-r12 <- "equi-distant sequences with 20-40% identity"
-r2 <- "families aligned with a highly divergent orphan sequence"
-r3 <- "subgroups with <25% residue identity between groups"
-r4 <- "sequences with N/C-terminal extensions"
-r5 <- "internal insertions"
-
-referenceDB$category <- data.frame(refID = c("RV11", "RV12", "RV20", "RV30", "RV40", "RV50"),
-                                   description = c(r11, r12, r2, r3, r4, r5),
-                                   stringsAsFactors = FALSE)
-
-referenceDB$alnCategory <- data.frame(ID = c(), refCategory = c(), stringsAsFactors = FALSE)
-
-directories <- c("RV11", "RV12", "RV20", "RV30", "RV40", "RV50")
-
-for (dir in directories) {
+  for (dir in directories) {
     directory <- paste("data/bb3_release/", paste(dir, "/", sep = ""), sep = "")
     fileList <- list.files(directory, pattern = ".msf")
 
-    # Add an alignment to the list alignment and add the alignment and it's category to
-    # referenceSB$alnCategory data frame Add the sequences in each alignment msf file
-    # separatly to sequences
     for (ref in fileList) {
-        filePath <- paste(directory, ref, sep = "")
-        readaln <- read.alignment(filePath, "msf")
+      filePath <- paste(directory, ref, sep = "")
+      readaln <- read.alignment(filePath, "msf")
 
-        alnID <- gsub(".msf", "", ref)
+      alnID <- gsub(".msf", "", ref)
 
-        # Add the alignment by adding the sequences and their correspoding names
-        # to the alignment list
-        alignment[[alnID]] <- list(name = readaln$nam, seq = readaln$seq)
+      # Produce a matrix that contains the sequences in it's rows
+      # and individual characters in its column for the sequence.
+      # Row names are given as the sequence names.
+      alnMatrix <- c()
 
-        # Add the sequences to the corresponding sequence name to the sequence list
-        for (seqName in alignment[[alnID]]$name) {
-            index <- index + 1
-            sequence[[tolower(seqName)]] <- alignment[[alnID]]$seq[[1]]
-        }
-        index <- 0
+      for(seq in readaln$seq) {
+        splitSeq <- strsplit(seq, "")[[1]]
+        alnMatrix <- rbind(alnMatrix, splitSeq)
+      }
 
-        # Add the category information of the alignment
-        referenceDB$alnCategory <- rbind(referenceDB$alnCategory,
-                                         data.frame(ID = alnID, refCategory = dir,
-                                                    stringsAsFactors = FALSE))
+      rownames(alnMatrix) <- readaln$nam
+      alignment[[alnID]] <- alnMatrix
+
+      # Add the alignment ID for each given sequence
+      for (seqID in readaln$nam) {
+        sequenceCat[[seqID]] <- c(sequenceCat[[seqID]], alnID)
+
+      }
+
+      # Add the balibase category for the alignment
+      database$alnCategory <- rbind(database$alnCategory,
+                                       data.frame(alnID = alnID, refID = dir,
+                                                  stringsAsFactors = FALSE))
 
     }
+  }
+
+  return (list(alignment, sequenceCat))
 }
 
-referenceDB$alignments <- alignment
-referenceDB$sequences <- sequence
 
-# Save referenceDB into a .rda file for less computational costs
-save(referenceDB, file = "balibaseReferenceDB.rda")
-
-
-##--------------------------- Sample Searches -------------------------------##
-
-# ##Sample category search ##Print every alignment in a given category
-# targetCat <- 'RV11'
-# list <- referenceDB$alnCategory[referenceDB$alnCategory$refCategory == targetCat , 'ID']
-#
-# for (i in list) {
-#   print(referenceDB$alignments[[i]])
-# }
-
-# ##Sample sequence search by sequence name
-# targetSeq <-'FER_HAEIN'
-# referenceDB$sequences[[targetSeq]]
-
-# ##Sample alignment search by alignment ID
-# targetAln <- 'BB30014'
-# print(referenceDB$alignments[[targetAln]])

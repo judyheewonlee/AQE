@@ -1,29 +1,43 @@
 #' fetchAln.R
 #'
-#' \code{<function>} Print or save an alignment of interest from the BaliBASE suite
+#' \code{<function>} Return an alignment of interest from BaliBASE in matrix form.
 #'
 #' Details.
-#' @section Input: The alignment ID of an alignment of interest with TRUE or FALSE if the user
-#' would like to save the alignment in a .fasta format file.
+#' @section Input: The alignment ID of the alignment of interest.
 #'
-#' @param seq A string of the alignment ID.
-#' @param write A boolean value of TRUE or FALSE if the user would like to have the
-#' alignment in a .fasta format file. This parameter is automatically set to FALSE.
+#' @param seq A string of the sequence name in quotations.
 #'
-#' @return The sequence of interest or also a .fasta file of the alignment if desired.
+#' @return The alignment of interest from the BaliBASE database.
+#'
+#' @param collapse Let the user choose a file name, if none is provided make the name
+#' of the file
+#'
 
-fetchAln <- function(alnID, write = FALSE) {
-  ID <- toupper(alnID)
-  if (is.null(referenceDB$alignments[[ID]])) {
-    cat("No such alignment is available on baliBASE.\n")
+#think about how to collpase the matrix alignment and what data structure you should
+# use to store it
+
+fetchAln <- function(alnID, collapse = FALSE, asMatrix = TRUE) {
+
+  if (is.null(referenceDB$alignments[[alnID]])) {
+    cat("No such alignment is available on baliBASE. Make sure that the cases are
+        correct and quotations are used.\n")
   }
-  else {
-    print(referenceDB$alignments[[ID]])
-    if (write == TRUE) {
-      fileName = paste(ID, ".fasta", sep = "")
-      write.fasta(referenceDB$alignments[[ID]]$seq,
-                  referenceDB$alignments[[ID]]$name,
-                  fileName)
-    }
+
+  else{
+
+    return(referenceDB$alignments[[alnID]])
+
   }
+    # if (write == TRUE) {
+    #   fileName = paste(ID, ".fasta", sep = "")
+    #   write.fasta(referenceDB$alignments[[ID]]$seq,
+    #               referenceDB$alignments[[ID]]$name,
+    #               fileName)
+    # }
+
+
+
 }
+
+#need to mkae sure that we're not overwriting files without the user knowing
+#make sure to check if the file exists already (file.exists() function)
