@@ -1,5 +1,6 @@
 # Rprofile functions
 library(seqinr)
+library(rjson)
 
 .First <- function() {
   cat("Welcome to AQE. AQE is a alignment quality evaluation tool that

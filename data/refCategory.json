@@ -1,0 +1,21 @@
+[
+
+{ "ID" : "RV11",
+ "description" : "equi-distant sequences with <20% identity" },
+
+{ "ID" : "RV12",
+ "description" : "equi-distant sequences with 20-40% identity" },
+
+{ "ID" : "RV20",
+ "description" : "families aligned with a highly divergent orphan sequence" },
+
+{ "ID" : "RV30",
+ "description" : "subgroups with <25% residue identity between groups" },
+
+{ "ID" : "RV40",
+ "description" : "sequences with N/C-terminal extensions" },
+
+ { "ID" : "RV50",
+ "description" : "internal insertions" }
+
+]
