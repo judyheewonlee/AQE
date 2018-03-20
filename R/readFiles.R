@@ -13,7 +13,7 @@
 
 readFiles <- function(database) {
 
-  directories <- c("RV11", "RV12", "RV20", "RV30", "RV40", "RV50")
+  directories <- fromJSON("data/refCategory.json")[,1]
 
   # Iterate through each directory and each file in the directories
   for (dir in directories) {

@@ -18,13 +18,16 @@
 
 fetchSeq <- function(seqName, collapse = TRUE, asMatrix = FALSE) {
 
-  if (is.null(referenceDB$sequenceCategory[[seqName]])) {
+  seqNum <- grep(seqName, referenceDB$seqCategory$seqID)
+
+  if (is.null(seqNum)) {
     cat("No such sequence is available on baliBASE. Make sure that the cases are
         correct and quotations are used. \n")
   }
 
   else {
-    alnID <- referenceDB$sequenceCategory[[seqName]][[1]]
+
+    alnID <- referenceDB$seqCategory[seqNum[1],]$alnID
     seq <- paste(referenceDB$alignments[[alnID]][seqName,], collapse = "")
 
     if (isTRUE(collapse)) {

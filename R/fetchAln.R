@@ -18,8 +18,34 @@ fetchAln <- function(alnID, collapse = FALSE, asMatrix = TRUE) {
   }
 
   else{
+    aln <- referenceDB$alignments[[alnID]]
+    modAln <- referenceDB$alignments[[alnID]]
 
-    return(referenceDB$alignments[[alnID]])
+    if (isTRUE(collapse)) {
+      modAln <- matrix(nrow = nrow(aln))
+
+      for (i in nrow(aln)) {
+
+        seq <- paste(aln[i,], collapse = "")
+        seq <- gsub("-", "", seq)
+        modAln <- rbind(modAln, seq)
+
+        # if (isTRUE(asMatrix)) {
+        #   modAln <- rbind(modAln, strsplit(seq, "")[[1]])
+        #
+        # }
+        #
+        # else {
+        #   modAln <- rbind(modAln, seq)
+        #
+        # }
+      }
+
+      #rownames(modAln) <- rownames(aln)
+
+    }
+
+    return(modAln)
 
   }
 
