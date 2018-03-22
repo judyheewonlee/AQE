@@ -2,8 +2,6 @@
 
 #' list of things to finish
 #' data model diagram, put it in github too
-#' fetch alignment
-#' write alignment
 #' scoring
 #' import tc score and pairwise score
 #'

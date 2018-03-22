@@ -1,53 +1,80 @@
 #' fetchAln.R
 #'
-#' \code{<function>} Return an alignment of interest from BaliBASE in matrix form.
+#' \code{<function>} Return an alignment of interest from BaliBASE.
 #'
 #' Details.
-#' @section Input: The alignment ID of the alignment of interest.
 #'
-#' @param seq A string of the sequence name in quotations.
+#' @section Input: The alignment ID of the alignment of interest from BaliBASE.
+#' Additonal inputs are collapse and asMatrix which are automatically
+#' set to FALSE if not provided.
+#'
+#' @param alnID A character vector of the alignment name.
+#'
+#' @param seq A character vector of the sequence name in quotations.
+#'
+#' @param collapse TRUE if the user would like to remove gaps in the sequence.
+#' FALSE if they would like to keep the gaps. @collapse is automatically
+#' set to TRUE.
+#'
+#' @param asMatrix TRUE if the user would like the sequence in matrix form.
+#' FALSE will return a character vector of the sequence. @asMatrix is
+#' automatically set to FALSE.
 #'
 #' @return The alignment of interest from the BaliBASE database.
-#'
 
-fetchAln <- function(alnID, collapse = FALSE, asMatrix = TRUE) {
 
+fetchAln <- function(alnID, collapse = TRUE, asMatrix = TRUE) {
+  # Check if the provided alnID is valid
   if (is.null(referenceDB$alignments[[alnID]])) {
     cat("No such alignment is available on baliBASE. Make sure that the cases are
         correct and quotations are used.\n")
   }
 
-  else{
+  else {
     aln <- referenceDB$alignments[[alnID]]
-    modAln <- referenceDB$alignments[[alnID]]
+    seqList <- c()
 
-    if (isTRUE(collapse)) {
-      modAln <- matrix(nrow = nrow(aln))
+    # Collapse the sequences and add them to seqList
+    for (i in 1:nrow(aln)) {
+      sequence <- paste(aln[i,], collapse = "")
 
-      for (i in nrow(aln)) {
-
-        seq <- paste(aln[i,], collapse = "")
-        seq <- gsub("-", "", seq)
-        modAln <- rbind(modAln, seq)
-
-        # if (isTRUE(asMatrix)) {
-        #   modAln <- rbind(modAln, strsplit(seq, "")[[1]])
-        #
-        # }
-        #
-        # else {
-        #   modAln <- rbind(modAln, seq)
-        #
-        # }
+      # Collapse the sequence if collapse is TRUE
+      if (isTRUE(collapse)) {
+        sequence <- gsub("-", "", sequence)
       }
 
-      #rownames(modAln) <- rownames(aln)
-
+      seqList <- append(seqList, sequence)
     }
 
-    return(modAln)
+    # Convert the sequences into a matrix format if asMatrix is
+    # TRUE
+    if (isTRUE(asMatrix)) {
+      maxSeqLength <- max(nchar(seqList))
+      modAln <- matrix(nrow = nrow(aln), ncol = maxSeqLength)
+
+      for (j in 1:length(seqList)) {
+        splitSeq <- strsplit(seqList[j], "")[[1]]
+        length(splitSeq) <- maxSeqLength
+
+        modAln[j,] <- splitSeq
+      }
+    }
+
+    # Use seqList and create a matrix of the sequences without them separated if
+    # asMatrix is FALSE
+    else {
+      modAln <- c()
+      for (sequence in seqList) {
+        modAln <- rbind(modAln, sequence)
+      }
+    }
+
+    # Change the rownames to the corresponding sequence ID's
+    rownames(modAln) <- rownames(aln)
 
   }
 
+  return(modAln)
 }
+
 
