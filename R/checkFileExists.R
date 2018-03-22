@@ -9,6 +9,10 @@
 #'
 #' @param file The filepath of the file of interest in the form
 #' of a character vector.
+#'
+#' @export
+#'
+#' @keywords internal
 
 checkFileExist <- function(file) {
   # If the file name exists already, prompt the user if they would like to replace the file

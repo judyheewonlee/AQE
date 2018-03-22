@@ -18,6 +18,10 @@
 #'
 #' @return The database with the sequence ID and it's corresponding alignment
 #' ID appended to the data frame seqCategory contained in the the database.
+#'
+#' @export
+#'
+#' @keywords internal
 
 appendSeqCat <- function(database, readaln, alnID) {
   # Add the alignment ID for each given sequence

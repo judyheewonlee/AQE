@@ -1,6 +1,7 @@
 Package: AQE
-Title: Alignment Quality Evaluation Tool
-Version: 0.0.0.9000
+Title: Alignment Quality Evaluation (AQE) Tool
+Version: 1.0
+Date: 2018 March
 Authors@R: person("Heewon", "Lee", email = "heewon.lee@mail.utoronto.ca", role = c("aut", "cre"))
 Description: AQE is a alignment quality evaluation tool that 
         utilizes the BaliBASE suite to perform different functions such as
@@ -9,3 +10,10 @@ Description: AQE is a alignment quality evaluation tool that
 Depends: R (>= 3.4.2)
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/judyheewonlee/AQE
+RoxygenNote: 6.0.1
+Imports: seqinr,
+    jsonlite,
+    Biostrings,
+    msa,
+    AlignStat

@@ -16,6 +16,10 @@
 #' @param extension The extension of the file provided by the user.
 #'
 #' @return The generated file name.
+#'
+#' @export
+#'
+#' @keywords internal
 
 nameFile <- function(inputID = NULL, fileName, extension, directory) {
   #Create a name for the file, use fileName if provided

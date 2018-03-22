@@ -18,6 +18,10 @@
 #' @param collapse TRUE if the user would like to collapse the gaps in the
 #' alignment. FALSE to maintain gaps. @collapse is automatically set to
 #' TRUE.
+#'
+#' @export
+#'
+#' @import seqinr
 
 writeAln <- function(alnID, fileName = NULL, directory = "data/Output",
                      collapse = TRUE) {
@@ -44,7 +48,7 @@ writeAln <- function(alnID, fileName = NULL, directory = "data/Output",
 
     # Fetch the alignment and write it into a mfa file
     alignment <- fetchAln(alnID, collapse, asMatrix = FALSE)
-    write.fasta(as.list(alignment), rownames(alignment),
+    seqinr::write.fasta(as.list(alignment), rownames(alignment),
                 directory)
   }
 }

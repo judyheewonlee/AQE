@@ -17,6 +17,8 @@
 #' automatically set to FALSE.
 #'
 #' @return The sequence of interest from the BaliBASE database.
+#'
+#' @export
 
 fetchSeq <- function(seqName, collapse = TRUE, asMatrix = FALSE) {
   # Grab all positions in the seqCategory dataframe where

@@ -3,7 +3,9 @@
 #' \code{<function>} The @scoreAlignment function takes a reference alignment
 #' and a test alignment and returns an object of class "pairwise alignment
 #' comparison" (PAC) containing the sum of pairs and/or total column scores
-#' using the AlignStat package.
+#' using the AlignStat package if @details is set to TRUE. If the user
+#' would simply like the scores, @scoreAlignment returns a data frame
+#' containing the total column score and sum of pairs score.
 #'
 #' Details.
 #'
@@ -21,18 +23,35 @@
 #' score included into the returned PAC object. Automatically set to
 #' FALSE.
 #'
+#' @param details A boolean value, FALSE if the user would like
+#' only the score values rather than a PAC object containing details about
+#' the alignments. If TRUE, a PAC is returned.
+#'
 #' @return A PAC object containing providing the optimal pairwise column
 #' alignment of two alternative MSAs of the same sequences, and summary
-#' statistics of the differences between them. Refer to the documentation
+#' statistics of the differences between them. (Refer to the documentation
 #' for @compare_alignments function for details on the output components
-#' in the AlignStat package.
+#' in the AlignStat package.) Or a data frame containing only the total column
+#' score and sum of pairs score, depending on the value of @details.
+#'
+#' @export
+#'
+#' @importFrom AlignStat compare_alignments
 
-scoreAlignment <- function(reference, test, SP = FALSE, CS = FALSE) {
+scoreAlignment <- function(reference, test, SP = FALSE, CS = FALSE,
+                           details = FALSE) {
   if (!file.exists(reference) || !file.exists(test)) {
     stop("Please make sure to provide valid filepaths.")
   }
 
   score <- AlignStat::compare_alignments(reference, test, SP, CS)
+
+  if (!isTRUE(details)) {
+    score <- data.frame(Type = c("Total Column Score",
+                                 "Sum of Pairs Score"),
+                        Score = c(score$column_score$column.score,
+                                  score$sum_of_pairs$sum.of.pairs.score))
+  }
 
   return(score)
 }

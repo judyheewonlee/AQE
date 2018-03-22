@@ -18,6 +18,10 @@
 #' @param collapse TRUE if the user would like to collapse the gaps in the
 #' alignment. FALSE to maintain gaps. @collapse is automatically set to
 #' TRUE.
+#'
+#' @export
+#'
+#' @import seqinr
 
 writeSeq <- function(seqID, fileName = NULL, directory = "data/Output", collapse = TRUE) {
   refNum <- grep(seqID, referenceDB$seqCategory$seqID)
@@ -41,7 +45,7 @@ writeSeq <- function(seqID, fileName = NULL, directory = "data/Output", collapse
 
     # Call checkFileExist to see if the file already exists
     checkFileExist(directory)
-    write.fasta(fetchSeq(seqID, collapse, asMatrix = TRUE), seqID,
+    seqinr::write.fasta(fetchSeq(seqID, collapse, asMatrix = TRUE), seqID,
                 directory)
   }
 }

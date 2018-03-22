@@ -15,6 +15,12 @@
 #' in the file.
 #'
 #' @return A @XStringSet object corresponding to the @readType input.
+#'
+#' @export
+#'
+#' @keywords internal
+#'
+#' @importFrom Biostrings readAAStringSet readDNAStringSet readRNAStringSet
 
 convertXStringSet <- function(filePath,
                               readType = c("AA", "DNA", "RNA")) {

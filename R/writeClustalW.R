@@ -26,6 +26,10 @@
 #' For the remaining parameters:
 #' Please view details on msa::msa() function which provides details about the
 #' remaining parameters for writeClustalW
+#'
+#' @export
+#'
+#' @import seqinr
 
 writeClustalW <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                         fileName = NULL, directory = "data/Output",
@@ -71,7 +75,7 @@ writeClustalW <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                            type, order, verbose, help, ...)
   seqinr::write.fasta(as.list(seqinrAln$seq), seqinrAln$nam,
                       alnFilePath)
-  }
+}
 
 
 

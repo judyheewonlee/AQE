@@ -26,6 +26,10 @@
 #' For the remaining parameters:
 #' Please view details on msa::msa() function which provides details about the
 #' remaining parameters for writeClustalOmega
+#'
+#' @export
+#'
+#' @import seqinr
 
 writeClustalOmega <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                         fileName = NULL, directory = "data/Output",

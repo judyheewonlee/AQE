@@ -14,7 +14,10 @@
 #'
 #' @return The database with the alignment category appended to the
 #' alnCategory data frame contained in the database.
-
+#'
+#' @export
+#'
+#' @keywords internal
 
 appendAlnCat <- function(database, alnID, directory) {
   # Add the alignment ID and it's reference category to the database

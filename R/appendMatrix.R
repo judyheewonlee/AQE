@@ -20,6 +20,10 @@
 #'
 #' @return The database with the alignment matrix appended to the alignments
 #' list contained in the database.
+#'
+#' @export
+#'
+#' @keywords internal
 
 appendMatrix <- function(database, readaln, alnID) {
   alnMatrix <- c()

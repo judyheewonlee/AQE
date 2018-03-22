@@ -11,9 +11,16 @@
 #'
 #' @return The modified database containing alignments, alignment categories
 #' and sequence categories.
+#'
+#' @export
+#'
+#' @keywords internal
+#'
+#' @importFrom jsonlite fromJSON
+#' @import seqinr
 
 readFiles <- function(database) {
-  directories <- fromJSON("data/refCategory.json")[,1]
+  directories <- jsonlite::fromJSON("data/refCategory.json")[,1]
 
   # Iterate through each directory and each file in the directories
   for (dir in directories) {

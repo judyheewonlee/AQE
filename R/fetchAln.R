@@ -21,6 +21,8 @@
 #' automatically set to FALSE.
 #'
 #' @return The alignment of interest from the BaliBASE database.
+#'
+#' @export
 
 
 fetchAln <- function(alnID, collapse = TRUE, asMatrix = TRUE) {

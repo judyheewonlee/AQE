@@ -1,16 +1,20 @@
-# Required packages for AQE
-library(seqinr)
-library(rjson)
-library(jsonlite)
+# Purpose:  Bioinformatics and Computational Biology project for BCB330
+#
+#
+# Version:  1.0
+#
+# Date:     2018 03
+# Author:   Judy Heewon Lee (heewon.lee@mail.utoronto.ca)
+#
+# Versions:
+#
+#           1.0 First implementation of AQE
+#
+#
+# ====================== AQE Initialization ========================= #
 
 .First <- function() {
-
-  intro <- "Welcome to AQE. AQE is a alignment quality evaluation tool that
-            utilizes the BaliBASE suite to perform different functions such as
-            evaluating the quality of an alignment algorithm, retrieving reference
-            sequences or retrieving reference alignments. Type 'help' to look at
-            the different commands and options.\n"
-  cat(intro)
+  cat("Welcome to AQE version 1.0.\n")
 }
 
 .Last <- function() {
