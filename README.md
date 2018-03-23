@@ -1,10 +1,8 @@
-Purpose:  Bioinformatics and Computational Biology project for BCB330
-Version:  1.0
-Date:     2018 03
-Author:   Judy Heewon Lee (heewon.lee@mail.utoronto.ca)
-Versions: 1.0 First Implementation of AQE
-
-# =========================================================================== #
+#AQE
+Version:  1.0 \n
+Date:     2018 03 \n
+Author:   Judy Heewon Lee (heewon.lee@mail.utoronto.ca) \n
+Versions: 1.0 First Implementation of AQE \n
 
 AQE is a alignment quality evaluation tool that utilizes the BaliBASE suite 
 to perform different functions such as evaluating the quality of an alignment 
