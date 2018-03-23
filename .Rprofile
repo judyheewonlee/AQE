@@ -13,11 +13,10 @@
 #
 # ====================== AQE Initialization ========================= #
 
-# Load referenceDB.rda
-load(file = "data/referenceDB.rda")
-
 .First <- function() {
-  cat("Welcome to AQE version 1.0.\n")
+  cat(" Welcome to AQE version 1.0.",
+      "In order to start using AQE, make sure to import the reference\n",
+      "database using load(\"data/referenceDB.rda\")\n\n")
 }
 
 .Last <- function() {
