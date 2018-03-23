@@ -1,11 +1,13 @@
-AQE
+## AQE
 
-Alignment Quality Evaluation Tool
+###  Alignment Quality Evaluation Tool
 
 -----------------------------------------------
 
 Version: 1.0 
-Author: Judy Heewon Lee (heewon.lee@mail.utoronto.ca) 
+
+Author: Judy Heewon Lee (heewon.lee@mail.utoronto.ca)
+
 Versions: 1.0 First Implementation of AQE 
 
 -----------------------------------------------
@@ -36,10 +38,11 @@ suggested by Hadley Wickham in:
 -----------------------------------------------
 Some useful keyboard shortcuts for package authoring:
 
-  Build and Reload Package:  'Cmd + Shift + B'
-  Update Documentation:      'Cmd + Shift + D' or devtools::document()
-  Test Package:              'Cmd + Shift + T'
-  Check Package:             'Cmd + Shift + E'
+Build and Reload Package:  'Cmd + Shift + B'
+Update Documentation:      'Cmd + Shift + D' or devtools::document()
+Test Package:              'Cmd + Shift + T'
+Check Package:             'Cmd + Shift + E'
+
 -----------------------------------------------
 
 Load the package with:
