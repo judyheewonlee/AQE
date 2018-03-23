@@ -22,6 +22,7 @@
 #' @import seqinr
 
 writeSeq <- function(seqID, fileName = NULL, directory = "data/Output", collapse = TRUE) {
+  referenceDB <- get("referenceDB", envir  = environment())
   refNum <- grep(seqID, referenceDB$seqCategory$seqID)
 
   if (is.null(refNum)) {

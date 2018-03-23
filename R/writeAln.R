@@ -24,6 +24,7 @@
 
 writeAln <- function(alnID, fileName = NULL, directory = "data/Output",
                      collapse = TRUE) {
+  referenceDB <- get("referenceDB", envir  = environment())
   if (is.null(referenceDB$alignments[[alnID]])) {
     cat("No such sequence is available on baliBASE. Make sure that the cases are
         correct and quotations are used. \n")

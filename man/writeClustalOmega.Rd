@@ -24,11 +24,48 @@ set to NULL, where the file will be named as the concatenated string of
 the \code{alnID} and "ClustalOmega".}
 
 \item{directory}{The directory the user would like the file to be placed in.
-Must be a string. Note: "/" should not be added to the end of the directory.
+Must be a string. Note: "/" should not be added to the end of the directory.}
 
-For the remaining parameters:
+\item{cluster}{The cluster size which should be used. The default is 100.
+In the original ClustalOmega implementation, this parameter is called
+cluster-size.}
+
+\item{gapOpening, gapExtension}{ClustalOmega currently does not allow
+to adjust gap penalties; these arguments are only for future extensions
+and consistency with the other algorithms and msa. However, setting these
+parameters to values other than "default" will result in a warning.}
+
+\item{maxiters}{maximum number of iterations; the default value
+is 0 (no limitation). In the original ClustalOmega implementation,
+this parameter is called \code{iterations}.}
+
+\item{substitutionMatrix}{substitution matrix for scoring matches and
+mismatches; can be a real matrix or a file name. If the file interface
+is used, matrices have to be in NCBI-format. The original MUSCLE
+implementation also accepts matrices in WU_BLAST (AB_BLAST) format, but,
+due to copyright restrictions, this format is not supported by
+\code{msaMuscle}.}
+
+\item{type}{type of the input sequences \code{inputSeqs}; see \code{msa()}
+from \code{msa} package.}
+
+\item{order}{how the sequences should be ordered in the output object (see msa);
+in the original ClustalW implementation, this parameter is called
+\code{output-order}.}
+
+\item{verbose}{if TRUE, the algorithm displays detailed information
+and progress messages.}
+
+\item{help}{if TRUE, information about algorithm-specific parameters is
+displayed. In this case, no multiple sequence alignment is performed and
+the function quits after displaying the additional help information.}
+
+\item{...}{further parameters specific to ClustalOmega; An overview of parameters
+that are available in this interface is shown when calling \code{msaClustalOmega}
+with \code{help=TRUE}. For more details, see also the documentation of ClustalOmega.
+
 Please view details on \code{msa::msa()} function which provides details
-about the remaining parameters for writeClustalOmega}
+about the parameters that adjust the alignment.}
 }
 \description{
 \code{<function>} Write a multifasta file containing sequences that are

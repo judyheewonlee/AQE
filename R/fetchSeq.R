@@ -5,7 +5,7 @@
 #'
 #' @section Input: The name of the sequence of interest as a character vector.
 #'
-#' @param seq A character vector of the sequence name in quotations.
+#' @param seqName A character vector of the sequence name in quotations.
 #'
 #' @param collapse TRUE if the user would like to remove gaps in the sequence.
 #' FALSE if they would like to keep the gaps. \code{collapse} is automatically
@@ -19,13 +19,14 @@
 #' @export
 
 fetchSeq <- function(seqName, collapse = TRUE, asMatrix = FALSE) {
+  referenceDB <- get("referenceDB", envir  = environment())
   # Grab all positions in the seqCategory dataframe where
   # the sequence ID is positioned
   seqNum <- grep(seqName, referenceDB$seqCategory$seqID)
 
   # Check if the user provided a valid seqID
   if (is.null(seqNum)) {
-    cat("No such sequence is available on baliBASE. Make sure that the cases are
+    stop("No such sequence is available on baliBASE. Make sure that the cases are
         correct and quotations are used. \n")
   }
 

@@ -11,6 +11,7 @@
 #' @export
 
 getSeqID <- function(alnID) {
+  referenceDB <- get("referenceDB", envir  = environment())
   numList <- grep(alnID, referenceDB$seqCategory$alnID)
   seqList <- lapply(numList, function(x) referenceDB$seqCategory[x,]$seqID)
 

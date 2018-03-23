@@ -16,8 +16,6 @@ set to TRUE.}
 \item{asMatrix}{TRUE if the user would like the sequence in matrix form.
 FALSE will return a character vector of the sequence. \code{asMatrix} is
 automatically set to FALSE.}
-
-\item{seq}{A character vector of the sequence name in quotations.}
 }
 \value{
 The alignment of interest from the BaliBASE database.

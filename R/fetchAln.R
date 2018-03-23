@@ -8,8 +8,6 @@
 #'
 #' @param alnID A character vector of the alignment name.
 #'
-#' @param seq A character vector of the sequence name in quotations.
-#'
 #' @param collapse TRUE if the user would like to remove gaps in the sequence.
 #' FALSE if they would like to keep the gaps. \code{collapse} is automatically
 #' set to TRUE.
@@ -23,9 +21,10 @@
 
 
 fetchAln <- function(alnID, collapse = TRUE, asMatrix = TRUE) {
+  referenceDB <- get("referenceDB", envir  = environment())
   # Check if the provided alnID is valid
   if (is.null(referenceDB$alignments[[alnID]])) {
-    cat("No such alignment is available on baliBASE. Make sure that the cases are
+    stop("No such alignment is available on baliBASE. Make sure that the cases are
         correct and quotations are used.\n")
   }
 

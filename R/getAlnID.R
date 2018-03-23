@@ -19,6 +19,7 @@
 #' @export
 
 getAlnID <- function(referenceCat = NULL, seqID = NULL) {
+  referenceDB <- get("referenceDB", envir  = environment())
 
   # Return the alignment ID's from the given reference Category
   if (!is.null(referenceCat)) {

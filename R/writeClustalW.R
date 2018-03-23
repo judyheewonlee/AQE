@@ -21,12 +21,56 @@
 #' @param directory The directory the user would like the file to be placed in.
 #' Must be a string. Note: "/" should not be added to the end of the directory.
 #'
-#' For the remaining parameters:
+#' @param cluster The clustering method which should be used. Possible values
+#' are \code{"nj"} (default) and \code{"upgma"}. In the original ClustalW
+#' implementation, this parameter is called clustering.
+#'
+#' @param gapOpening gap opening penalty; the default value for nucleotide
+#' sequences is 15.0, the default value for amino acid sequences is 10.0.
+#'
+#' @param gapExtension gap extension penalty; the default value for
+#' nucleotide sequences is 6.66, the default value for amino acid
+#' sequences is 0.2.
+#'
+#' @param maxiters maximum number of iterations; the default value
+#' is 16. In the original ClustalW implementation, this parameter
+#' is called \code{numiters}.
+#'
+#' @param substitutionMatrix substitution matrix for scoring matches and
+#' mismatches; can be a real matrix, a file name, or the name of a built-in
+#' substitution matrix. In the latter case, the choices \code{"blosum"},
+#' \code{"pam"}, \code{"gonnet"}, and \code{"id"} are supported
+#' for amino acid sequences. For aligning nucleotide sequences,
+#' the choices \code{"iub"} and \code{"clustalw"} are possible.
+#' The parameter dnamatrix can also be used instead for the sake of backwards
+#' compatibility. The valid choices for this parameter are \code{"iub"} and
+#' \code{"clustalw"}. In the original ClustalW implementation, this parameter
+#' is called \code{matrix}.
+#'
+#' @param type type of the input sequences \code{inputSeqs}; see \code{msa()}
+#' from \code{msa} package.
+#'
+#' @param order how the sequences should be ordered in the output object
+#' (see msa); in the original ClustalW implementation, this parameter is
+#' called \code{outorder}.
+#'
+#' @param verbose if TRUE, the algorithm displays detailed information
+#' and progress messages.
+#'
+#' @param help if TRUE, information about algorithm-specific parameters is
+#' displayed. In this case, no multiple sequence alignment is performed and
+#' the function quits after displaying the additional help information.
+#'
+#' @param ... further parameters specific to ClustalW; An overview of parameters
+#' that are available in this interface is shown when calling \code{msaClustalW}
+#' with \code{help=TRUE}. For more details, see also the documentation of ClustalW.
+#'
 #' Please view details on \code{msa::msa()} function which provides details
-#' about the remaining parameters for writeClustalW.
+#' about the parameters that adjust the alignment.
 #'
 #' @export
 #' @import seqinr
+#' @importFrom utils tail
 
 writeClustalW <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                         fileName = NULL, directory = "data/Output",
@@ -35,6 +79,7 @@ writeClustalW <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                         substitutionMatrix = "default", type = "default",
                         order = c("aligned", "input"), verbose = FALSE,
                         help = FALSE, ...) {
+  referenceDB <- get("referenceDB", envir  = environment())
   aln <- referenceDB$alignments[[inputSeqs]]
 
   if (file.exists(inputSeqs)) {

@@ -3,6 +3,7 @@ Title: Alignment Quality Evaluation (AQE) Tool
 Version: 1.0
 Date: 2018 March
 Authors@R: person("Heewon", "Lee", email = "heewon.lee@mail.utoronto.ca", role = c("aut", "cre"))
+License: GPL-3
 Description: AQE is a alignment quality evaluation tool that 
         utilizes the BaliBASE suite to perform different functions such as
         evaluating the quality of an alignment algorithm, retrieving reference

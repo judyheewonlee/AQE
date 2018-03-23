@@ -21,12 +21,62 @@
 #' @param directory The directory the user would like the file to be placed in.
 #' Must be a string. Note: "/" should not be added to the end of the directory.
 #'
-#' For the remaining parameters:
+#' @param cluster The clustering method which should be used. Possible values
+#' are \code{"upgma"}, \code{"upgmamax"}, \code{"upgmamin"}, \code{"upgmb"},
+#' and \code{"neighborjoining"}.
+#'
+#' @param gapOpening gap opening penalty; the default is 400 for DNA
+#' sequences and 420 for RNA sequences. The default for amino acid sequences
+#' depends on the profile score settings: for the setting le=TRUE, the default
+#' is 2.9, for sp=TRUE, the default is 1,439, and for sv=TRUE, the default is
+#' 300. Note that these defaults may not be suitable if custom substitution
+#' matrices are being used. In such a case, a sensible choice of gap
+#' penalties that fits well to the substitution matrix must be made.
+#'
+#' @param gapExtension gap extension penalty; the default is 0.
+#'
+#' @param maxiters maximum number of iterations; the default is 16.
+#' In the original MUSCLE implementation, it is also possible to set
+#' \code{maxiters} to 0 which leads to an (out of memory) error. Therefore,
+#' \code{maxiters=0} is not allowed in \code{msaMuscle}.
+#'
+#' @param substitutionMatrix substitution matrix for scoring matches and
+#' mismatches; can be a real matrix or a file name. If the file interface
+#' is used, matrices have to be in NCBI-format. The original MUSCLE
+#' implementation also accepts matrices in WU_BLAST (AB_BLAST) format, but,
+#' due to copyright restrictions, this format is not supported by
+#' \code{msaMuscle}.
+#'
+#' @param type type of the input sequences \code{inputSeqs}; see \code{msa()}
+#' from \code{msa} package.
+#'
+#' @param order how the sequences should be ordered in the output object
+#' (see msa for more details); the original MUSCLE implementation does
+#' not allow for preserving the order of input sequences. The \code{msaMuscle}
+#' function realizes this functionality by reverse matching of sequence names.
+#' Therefore, the sequences need to have unique names. If the sequences do
+#' not have names or if the names are not unique, the msaMuscle function
+#' assignes generic unique names \code{"Seq1"-Seqn} to the sequences and
+#' issues a warning. The choice \code{"input"} is not available at all for
+#' sequence data that is read directly from a FASTA file.
+#'
+#' @param verbose if TRUE, the algorithm displays detailed information
+#' and progress messages.
+#'
+#' @param help if TRUE, information about algorithm-specific parameters is
+#' displayed. In this case, no multiple sequence alignment is performed and
+#' the function quits after displaying the additional help information.
+#'
+#' @param ... further parameters specific to MUSCLE; An overview of parameters
+#' that are available in this interface is shown when calling \code{msaMuscle}
+#' with \code{help=TRUE}. For more details, see also the documentation of MUSCLE.
+#'
 #' Please view details on \code{msa::msa()} function which provides details
-#' about the remaining parameters for writeMuscle
+#' about the parameters that adjust the alignment.
 #'
 #' @export
 #' @import seqinr
+#' @importFrom utils tail
 
 writeMuscle <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                               fileName = NULL, directory = "data/Output",
@@ -35,6 +85,7 @@ writeMuscle <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
                               substitutionMatrix = "default", type = "default",
                               order = c("aligned", "input"), verbose = FALSE,
                               help = FALSE, ...) {
+  referenceDB <- get("referenceDB", envir  = environment())
   aln <- referenceDB$alignments[[inputSeqs]]
 
   if (file.exists(inputSeqs)) {
