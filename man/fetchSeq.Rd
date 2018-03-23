@@ -2,17 +2,17 @@
 % Please edit documentation in R/fetchSeq.R
 \name{fetchSeq}
 \alias{fetchSeq}
-\title{fetchSeq.R}
+\title{fetchSeq}
 \usage{
 fetchSeq(seqName, collapse = TRUE, asMatrix = FALSE)
 }
 \arguments{
 \item{collapse}{TRUE if the user would like to remove gaps in the sequence.
-FALSE if they would like to keep the gaps. @collapse is automatically
+FALSE if they would like to keep the gaps. \code{collapse} is automatically
 set to TRUE.}
 
 \item{asMatrix}{TRUE if the user would like the sequence in matrix form.
-FALSE will return a character vector of the sequence. @asMatrix is
+FALSE will return a character vector of the sequence. \code{asMatrix} is
 automatically set to FALSE.}
 
 \item{seq}{A character vector of the sequence name in quotations.}
@@ -24,10 +24,7 @@ The sequence of interest from the BaliBASE database.
 \code{<function>} Return a sequence of interest from BaliBASE collpased
 or with gaps and/or in matrix format.
 }
-\details{
-Details.
-}
 \section{Input}{
- The name of the sequence of interest.
+ The name of the sequence of interest as a character vector.
 }
 

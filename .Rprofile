@@ -13,6 +13,9 @@
 #
 # ====================== AQE Initialization ========================= #
 
+# Load referenceDB.rda
+load(file = "data/referenceDB.rda")
+
 .First <- function() {
   cat("Welcome to AQE version 1.0.\n")
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/appendSeqCat.R
 \name{appendSeqCat}
 \alias{appendSeqCat}
-\title{appendSeqCat.R}
+\title{appendSeqCat}
 \usage{
 appendSeqCat(database, readaln, alnID)
 }
@@ -14,7 +14,7 @@ appended to it.}
 the number of aligned sequences, a vector of strings containing the names
 of the aligned sequences, a vector of strings containing the aligned
 sequence, and a vector of strings containing commentaries for each sequence
-or NA is there is no comments.}
+or \code{NA} is there is no comments.}
 
 \item{alnID}{The alignment ID as a string.}
 }
@@ -25,8 +25,5 @@ ID appended to the data frame seqCategory contained in the the database.
 \description{
 \code{<function>} Append the sequence ID and it's corresponding alignment
 ID to the provided database.
-}
-\details{
-Details.
 }
 \keyword{internal}

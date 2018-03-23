@@ -1,13 +1,11 @@
-#' scoreAlignment.R
+#' scoreAlignment
 #'
-#' \code{<function>} The @scoreAlignment function takes a reference alignment
-#' and a test alignment and returns an object of class "pairwise alignment
-#' comparison" (PAC) containing the sum of pairs and/or total column scores
-#' using the AlignStat package if @details is set to TRUE. If the user
-#' would simply like the scores, @scoreAlignment returns a data frame
-#' containing the total column score and sum of pairs score.
-#'
-#' Details.
+#' \code{<function>} The \code{scoreAlignment} function takes a reference
+#' alignment and a test alignment and returns an object of class "pairwise
+#' alignment comparison" (PAC) containing the sum of pairs and/or total
+#' column scores using the AlignStat package if \code{details} is set to TRUE.
+#' If the user would simply like the scores, \code{scoreAlignment} returns a
+#' data frame containing the total column score and sum of pairs score.
 #'
 #' @param reference The filepath as a character vector to the reference
 #' alignment.
@@ -30,12 +28,11 @@
 #' @return A PAC object containing providing the optimal pairwise column
 #' alignment of two alternative MSAs of the same sequences, and summary
 #' statistics of the differences between them. (Refer to the documentation
-#' for @compare_alignments function for details on the output components
+#' for \code{compare_alignments} function for details on the output components
 #' in the AlignStat package.) Or a data frame containing only the total column
-#' score and sum of pairs score, depending on the value of @details.
+#' score and sum of pairs score, depending on the value of \code{details}.
 #'
 #' @export
-#'
 #' @importFrom AlignStat compare_alignments
 
 scoreAlignment <- function(reference, test, SP = FALSE, CS = FALSE,

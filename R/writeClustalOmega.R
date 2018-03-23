@@ -1,12 +1,10 @@
-#' writeClustalOmega.R
+#' writeClustalOmega
 #'
 #' \code{<function>} Write a multifasta file containing sequences that are
 #' aligned by the ClustalOmega alignment algorithm. The user may search the
 #' referenceDB for a set of BaliBASE sequences by entering the alignment ID
 #' as input, or they may input a .mfa file containing the sequences in
 #' fasta format.
-#'
-#' Details.
 #'
 #' @param inputSeqs The sequences the user would like to align. Can either
 #' be an alignment ID of a BaliBASE alignment or a file path to a .mfa file
@@ -18,17 +16,16 @@
 #'
 #' @param fileName The name of the ClustalOmega alignment file. Automatically
 #' set to NULL, where the file will be named as the concatenated string of
-#' the alnID and "ClustalOmega".
+#' the \code{alnID} and "ClustalOmega".
 #'
 #' @param directory The directory the user would like the file to be placed in.
 #' Must be a string. Note: "/" should not be added to the end of the directory.
 #'
 #' For the remaining parameters:
-#' Please view details on msa::msa() function which provides details about the
-#' remaining parameters for writeClustalOmega
+#' Please view details on \code{msa::msa()} function which provides details
+#' about the remaining parameters for writeClustalOmega
 #'
 #' @export
-#'
 #' @import seqinr
 
 writeClustalOmega <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),

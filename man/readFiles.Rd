@@ -2,7 +2,7 @@
 % Please edit documentation in R/readFiles.R
 \name{readFiles}
 \alias{readFiles}
-\title{readFiles.R}
+\title{readFiles}
 \usage{
 readFiles(database)
 }
@@ -18,8 +18,5 @@ and sequence categories.
 \code{<function>} Find the .msf files contained in the BaliBASE suite and
 read each alignment. Call helper functions which modify the database
 provided. Return the modified database.
-}
-\details{
-Details.
 }
 \keyword{internal}

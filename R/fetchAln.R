@@ -1,8 +1,6 @@
-#' fetchAln.R
+#' fetchAln
 #'
 #' \code{<function>} Return an alignment of interest from BaliBASE.
-#'
-#' Details.
 #'
 #' @section Input: The alignment ID of the alignment of interest from BaliBASE.
 #' Additonal inputs are collapse and asMatrix which are automatically
@@ -13,15 +11,14 @@
 #' @param seq A character vector of the sequence name in quotations.
 #'
 #' @param collapse TRUE if the user would like to remove gaps in the sequence.
-#' FALSE if they would like to keep the gaps. @collapse is automatically
+#' FALSE if they would like to keep the gaps. \code{collapse} is automatically
 #' set to TRUE.
 #'
 #' @param asMatrix TRUE if the user would like the sequence in matrix form.
-#' FALSE will return a character vector of the sequence. @asMatrix is
+#' FALSE will return a character vector of the sequence. \code{asMatrix} is
 #' automatically set to FALSE.
 #'
 #' @return The alignment of interest from the BaliBASE database.
-#'
 #' @export
 
 

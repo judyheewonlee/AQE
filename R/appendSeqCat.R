@@ -1,9 +1,7 @@
-#' appendSeqCat.R
+#' appendSeqCat
 #'
 #' \code{<function>} Append the sequence ID and it's corresponding alignment
 #' ID to the provided database.
-#'
-#' Details.
 #'
 #' @param database A database that will have the alignment in matrix form
 #' appended to it.
@@ -12,7 +10,7 @@
 #' the number of aligned sequences, a vector of strings containing the names
 #' of the aligned sequences, a vector of strings containing the aligned
 #' sequence, and a vector of strings containing commentaries for each sequence
-#' or NA is there is no comments.
+#' or \code{NA} is there is no comments.
 #'
 #' @param alnID The alignment ID as a string.
 #'
@@ -20,7 +18,6 @@
 #' ID appended to the data frame seqCategory contained in the the database.
 #'
 #' @export
-#'
 #' @keywords internal
 
 appendSeqCat <- function(database, readaln, alnID) {

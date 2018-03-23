@@ -1,10 +1,8 @@
-#' readFiles.R
+#' readFiles
 #'
 #' \code{<function>} Find the .msf files contained in the BaliBASE suite and
 #' read each alignment. Call helper functions which modify the database
 #' provided. Return the modified database.
-#'
-#' Details.
 #'
 #' @param database A database that will have the alignment ID and the corresponding
 #' category appended to it.

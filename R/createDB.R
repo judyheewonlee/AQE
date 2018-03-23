@@ -1,16 +1,14 @@
-#' createDB.R
+#' createDB
 #'
 #' \code{<function>} Produce a datamodel containing the contents from the
 #' BaliBASE database. Refer to the data model to understand the structure
 #' of the reference data base.
 #'
-#' Details.
-#'
 #' @return A data model containing the alignments and sequences of
 #' the BaliBASE database.
 #'
 #' @export
-#'
+#' @keywords internal
 #' @importFrom jsonlite fromJSON
 
 createDB <- function() {

@@ -2,7 +2,7 @@
 % Please edit documentation in R/appendMatrix.R
 \name{appendMatrix}
 \alias{appendMatrix}
-\title{appendMatrix.R}
+\title{appendMatrix}
 \usage{
 appendMatrix(database, readaln, alnID)
 }
@@ -27,8 +27,5 @@ list contained in the database.
 form of a matrix. Rownames are set as the sequence names in the alignment.
 Each row contains the corresponding sequence and each column is the
 individual characters of the sequences.
-}
-\details{
-Details.
 }
 \keyword{internal}

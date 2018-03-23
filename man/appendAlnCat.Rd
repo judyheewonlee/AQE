@@ -2,7 +2,7 @@
 % Please edit documentation in R/appendAlnCat.R
 \name{appendAlnCat}
 \alias{appendAlnCat}
-\title{appendAlnCat.R}
+\title{appendAlnCat}
 \usage{
 appendAlnCat(database, alnID, directory)
 }
@@ -21,8 +21,5 @@ alnCategory data frame contained in the database.
 \description{
 \code{<function>} Append the alignment ID with the corresponding reference
 ID it belongs to into the provided database.
-}
-\details{
-Details.
 }
 \keyword{internal}

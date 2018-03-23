@@ -2,7 +2,7 @@
 % Please edit documentation in R/writeClustalOmega.R
 \name{writeClustalOmega}
 \alias{writeClustalOmega}
-\title{writeClustalOmega.R}
+\title{writeClustalOmega}
 \usage{
 writeClustalOmega(inputSeqs, readType = c("AA", "DNA", "RNA"),
   fileName = NULL, directory = "data/Output", cluster = "default",
@@ -21,14 +21,14 @@ in the file.}
 
 \item{fileName}{The name of the ClustalOmega alignment file. Automatically
 set to NULL, where the file will be named as the concatenated string of
-the alnID and "ClustalOmega".}
+the \code{alnID} and "ClustalOmega".}
 
 \item{directory}{The directory the user would like the file to be placed in.
 Must be a string. Note: "/" should not be added to the end of the directory.
 
 For the remaining parameters:
-Please view details on msa::msa() function which provides details about the
-remaining parameters for writeClustalOmega}
+Please view details on \code{msa::msa()} function which provides details
+about the remaining parameters for writeClustalOmega}
 }
 \description{
 \code{<function>} Write a multifasta file containing sequences that are
@@ -36,7 +36,4 @@ aligned by the ClustalOmega alignment algorithm. The user may search the
 referenceDB for a set of BaliBASE sequences by entering the alignment ID
 as input, or they may input a .mfa file containing the sequences in
 fasta format.
-}
-\details{
-Details.
 }

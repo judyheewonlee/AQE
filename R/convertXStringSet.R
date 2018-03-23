@@ -1,8 +1,8 @@
-#' convertXStringSet.R
+#' convertXStringSet
 #'
 #' \code{<function>} The convertXStringSet function converts a provided
-#' .mfa file into a XStringSet corresponding to the @readType provided.
-#' If the provided readType is invalid, @convertXStringSet will stop
+#' .mfa file into a XStringSet corresponding to the \code{readType} provided.
+#' If the provided readType is invalid, \code{convertXStringSet} will stop
 #' all running functions and prompt the user to input a valid readType.
 #'
 #' Details.
@@ -14,12 +14,11 @@
 #' sequences. Can either be "AA", "DNA" or "RNA" depending on the characters
 #' in the file.
 #'
-#' @return A @XStringSet object corresponding to the @readType input.
+#' @return A \code{XStringSet} object corresponding to the \code{readType}
+#' input.
 #'
 #' @export
-#'
 #' @keywords internal
-#'
 #' @importFrom Biostrings readAAStringSet readDNAStringSet readRNAStringSet
 
 convertXStringSet <- function(filePath,

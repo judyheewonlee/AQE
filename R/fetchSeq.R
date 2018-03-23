@@ -1,23 +1,21 @@
-#' fetchSeq.R
+#' fetchSeq
 #'
 #' \code{<function>} Return a sequence of interest from BaliBASE collpased
 #' or with gaps and/or in matrix format.
 #'
-#' Details.
-#' @section Input: The name of the sequence of interest.
+#' @section Input: The name of the sequence of interest as a character vector.
 #'
 #' @param seq A character vector of the sequence name in quotations.
 #'
 #' @param collapse TRUE if the user would like to remove gaps in the sequence.
-#' FALSE if they would like to keep the gaps. @collapse is automatically
+#' FALSE if they would like to keep the gaps. \code{collapse} is automatically
 #' set to TRUE.
 #'
 #' @param asMatrix TRUE if the user would like the sequence in matrix form.
-#' FALSE will return a character vector of the sequence. @asMatrix is
+#' FALSE will return a character vector of the sequence. \code{asMatrix} is
 #' automatically set to FALSE.
 #'
 #' @return The sequence of interest from the BaliBASE database.
-#'
 #' @export
 
 fetchSeq <- function(seqName, collapse = TRUE, asMatrix = FALSE) {

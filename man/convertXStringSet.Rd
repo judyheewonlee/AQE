@@ -2,7 +2,7 @@
 % Please edit documentation in R/convertXStringSet.R
 \name{convertXStringSet}
 \alias{convertXStringSet}
-\title{convertXStringSet.R}
+\title{convertXStringSet}
 \usage{
 convertXStringSet(filePath, readType = c("AA", "DNA", "RNA"))
 }
@@ -15,12 +15,13 @@ sequences. Can either be "AA", "DNA" or "RNA" depending on the characters
 in the file.}
 }
 \value{
-A @XStringSet object corresponding to the @readType input.
+A \code{XStringSet} object corresponding to the \code{readType}
+input.
 }
 \description{
 \code{<function>} The convertXStringSet function converts a provided
-.mfa file into a XStringSet corresponding to the @readType provided.
-If the provided readType is invalid, @convertXStringSet will stop
+.mfa file into a XStringSet corresponding to the \code{readType} provided.
+If the provided readType is invalid, \code{convertXStringSet} will stop
 all running functions and prompt the user to input a valid readType.
 }
 \details{

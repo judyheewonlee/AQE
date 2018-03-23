@@ -2,7 +2,7 @@
 % Please edit documentation in R/createDB.R
 \name{createDB}
 \alias{createDB}
-\title{createDB.R}
+\title{createDB}
 \usage{
 createDB()
 }
@@ -15,6 +15,4 @@ the BaliBASE database.
 BaliBASE database. Refer to the data model to understand the structure
 of the reference data base.
 }
-\details{
-Details.
-}
+\keyword{internal}

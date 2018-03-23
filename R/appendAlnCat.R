@@ -1,9 +1,7 @@
-#' appendAlnCat.R
+#' appendAlnCat
 #'
 #' \code{<function>} Append the alignment ID with the corresponding reference
 #' ID it belongs to into the provided database.
-#'
-#' Details.
 #'
 #' @param database A database that will have the alignment ID and the
 #' corresponding category appended to it.
@@ -16,7 +14,6 @@
 #' alnCategory data frame contained in the database.
 #'
 #' @export
-#'
 #' @keywords internal
 
 appendAlnCat <- function(database, alnID, directory) {

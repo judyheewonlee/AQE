@@ -2,30 +2,29 @@
 % Please edit documentation in R/writeAln.R
 \name{writeAln}
 \alias{writeAln}
-\title{writeAln.R}
+\title{writeAln}
 \usage{
 writeAln(alnID, fileName = NULL, directory = "data/Output",
   collapse = TRUE)
 }
 \arguments{
 \item{alnID}{The Balibase alignment ID in the form of a character vector.
-Note: Be sure to provide the correct cases as @writeAln is case sensitive.}
+Note: Be sure to provide the correct cases as \code{writeAln} is
+case sensitive.}
 
 \item{fileName}{The name of the alignment file as a character vector.
-Automatically set to NULL, where the file will be named as the @alnID.}
+Automatically set to NULL, where the file will be named as the
+\code{alnID}.}
 
 \item{directory}{The directory the user would like the file to be placed in.
 Must be a character vector. Note: "/" should not be added to the end of the
 directory.}
 
 \item{collapse}{TRUE if the user would like to collapse the gaps in the
-alignment. FALSE to maintain gaps. @collapse is automatically set to
+alignment. FALSE to maintain gaps. \code{collapse} is automatically set to
 TRUE.}
 }
 \description{
 \code{<function>} The writeAln function returns an alignment from the
 database generated from the Balibase suite.
-}
-\details{
-Details.
 }

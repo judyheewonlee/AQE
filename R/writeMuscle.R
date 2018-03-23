@@ -1,12 +1,10 @@
-#' writeMuscle.R
+#' writeMuscle
 #'
 #' \code{<function>} Write a multifasta file containing sequences that are
 #' aligned by the ClustalW alignment algorithm. The user may search the
 #' referenceDB for a set of BaliBASE sequences by entering the alignment ID
 #' as input, or they may input a .mfa file containing the sequences in
 #' fasta format.
-#'
-#' Details.
 #'
 #' @param inputSeqs The sequences the user would like to align. Can either
 #' be an alignment ID of a BaliBASE alignment or a file path to a .mfa file
@@ -18,17 +16,16 @@
 #'
 #' @param fileName The name of the Muscle alignment file as a character vector.
 #' Automatically set to NULL, where the file will be named as the concatenated
-#' string of the @alnID and "Muscle".
+#' string of the \code{alnID} and "Muscle".
 #'
 #' @param directory The directory the user would like the file to be placed in.
 #' Must be a string. Note: "/" should not be added to the end of the directory.
 #'
 #' For the remaining parameters:
-#' Please view details on msa::msa() function which provides details about the
-#' remaining parameters for writeMuscle
+#' Please view details on \code{msa::msa()} function which provides details
+#' about the remaining parameters for writeMuscle
 #'
 #' @export
-#'
 #' @import seqinr
 
 writeMuscle <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),

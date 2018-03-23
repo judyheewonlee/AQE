@@ -2,9 +2,9 @@
 % Please edit documentation in R/scoreAlignment.R
 \name{scoreAlignment}
 \alias{scoreAlignment}
-\title{scoreAlignment.R}
+\title{scoreAlignment}
 \usage{
-scoreAlignment(reference, test, SP = FALSE, CS = FALSE)
+scoreAlignment(reference, test, SP = FALSE, CS = FALSE, details = FALSE)
 }
 \arguments{
 \item{reference}{The filepath as a character vector to the reference
@@ -20,20 +20,24 @@ FALSE.}
 \item{CS}{A boolean value, TRUE if the user would like the total column
 score included into the returned PAC object. Automatically set to
 FALSE.}
+
+\item{details}{A boolean value, FALSE if the user would like
+only the score values rather than a PAC object containing details about
+the alignments. If TRUE, a PAC is returned.}
 }
 \value{
 A PAC object containing providing the optimal pairwise column
 alignment of two alternative MSAs of the same sequences, and summary
-statistics of the differences between them. Refer to the documentation
-for @compare_alignments function for details on the output components
-in the AlignStat package.
+statistics of the differences between them. (Refer to the documentation
+for \code{compare_alignments} function for details on the output components
+in the AlignStat package.) Or a data frame containing only the total column
+score and sum of pairs score, depending on the value of \code{details}.
 }
 \description{
-\code{<function>} The @scoreAlignment function takes a reference alignment
-and a test alignment and returns an object of class "pairwise alignment
-comparison" (PAC) containing the sum of pairs and/or total column scores
-using the AlignStat package.
-}
-\details{
-Details.
+\code{<function>} The \code{scoreAlignment} function takes a reference
+alignment and a test alignment and returns an object of class "pairwise
+alignment comparison" (PAC) containing the sum of pairs and/or total
+column scores using the AlignStat package if \code{details} is set to TRUE.
+If the user would simply like the scores, \code{scoreAlignment} returns a
+data frame containing the total column score and sum of pairs score.
 }

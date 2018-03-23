@@ -1,11 +1,9 @@
-#' appendMatrix.R
+#' appendMatrix
 #'
 #' \code{<function>} Append the alignment to the database provided in the
 #' form of a matrix. Rownames are set as the sequence names in the alignment.
 #' Each row contains the corresponding sequence and each column is the
 #' individual characters of the sequences.
-#'
-#' Details.
 #'
 #' @param database A database that will have the alignment in matrix form
 #' appended to it.
@@ -22,7 +20,6 @@
 #' list contained in the database.
 #'
 #' @export
-#'
 #' @keywords internal
 
 appendMatrix <- function(database, readaln, alnID) {

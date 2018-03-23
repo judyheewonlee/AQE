@@ -1,11 +1,10 @@
-#' nameFile.R
+#' nameFile
 #'
-#' \code{<function>} The @nameFile function generates a name for a file. If the
-#' passed fileName is NULL, then concatenate the @inputID and @extension.
-#' If not, then concatenate the passed @fileName and @extension and return
+#' \code{<function>} The \code{nameFile} function generates a name for a
+#' file. If the passed fileName is NULL, then concatenate the
+#' \code{inputID} and \code{extension.} If not, then concatenate the
+#' passed \code{fileName} and \code{extension} and return
 #' the final name of the file.
-#'
-#' Details.
 #'
 #' @param inputID The name of the file as a string if fileName is NULL.
 #' Automatically set to NULL.
@@ -18,7 +17,6 @@
 #' @return The generated file name.
 #'
 #' @export
-#'
 #' @keywords internal
 
 nameFile <- function(inputID = NULL, fileName, extension, directory) {
