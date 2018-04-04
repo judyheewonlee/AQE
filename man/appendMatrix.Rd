@@ -23,7 +23,7 @@ The database with the alignment matrix appended to the alignments
 list contained in the database.
 }
 \description{
-\code{<function>} Append the alignment to the database provided in the
+Append the alignment to the database provided in the
 form of a matrix. Rownames are set as the sequence names in the alignment.
 Each row contains the corresponding sequence and each column is the
 individual characters of the sequences.

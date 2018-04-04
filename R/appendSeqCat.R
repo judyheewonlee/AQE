@@ -1,6 +1,7 @@
 #' appendSeqCat
 #'
-#' \code{<function>} Append the sequence ID and it's corresponding alignment
+#' @description
+#' Append the sequence ID and it's corresponding alignment
 #' ID to the provided database.
 #'
 #' @param database A database that will have the alignment in matrix form

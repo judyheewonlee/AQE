@@ -1,6 +1,7 @@
 #' readFiles
 #'
-#' \code{<function>} Find the .msf files contained in the BaliBASE suite and
+#' @description
+#' Find the .msf files contained in the BaliBASE suite and
 #' read each alignment. Call helper functions which modify the database
 #' provided. Return the modified database.
 #'
@@ -18,11 +19,11 @@
 #' @import seqinr
 
 readFiles <- function(database) {
-  directories <- jsonlite::fromJSON("data/refCategory.json")[,1]
+  directories <- jsonlite::fromJSON("inst/extdata/refCategory.json")[,1]
 
   # Iterate through each directory and each file in the directories
   for (dir in directories) {
-    directory <- paste("data/bb3_release/", paste(dir, "/", sep = ""), sep = "")
+    directory <- paste("inst/extdata/bb3_release/", paste(dir, "/", sep = ""), sep = "")
     fileList <- list.files(directory, pattern = ".msf")
 
     for (ref in fileList) {

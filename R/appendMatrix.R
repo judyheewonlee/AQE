@@ -1,6 +1,7 @@
 #' appendMatrix
 #'
-#' \code{<function>} Append the alignment to the database provided in the
+#' @description
+#' Append the alignment to the database provided in the
 #' form of a matrix. Rownames are set as the sequence names in the alignment.
 #' Each row contains the corresponding sequence and each column is the
 #' individual characters of the sequences.

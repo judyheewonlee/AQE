@@ -11,7 +11,7 @@ A data model containing the alignments and sequences of
 the BaliBASE database.
 }
 \description{
-\code{<function>} Produce a datamodel containing the contents from the
+Produce a datamodel containing the contents from the
 BaliBASE database. Refer to the data model to understand the structure
 of the reference data base.
 }

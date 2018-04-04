@@ -59,15 +59,25 @@
 #' that are available in this interface is shown when calling \code{msaClustalOmega}
 #' with \code{help=TRUE}. For more details, see also the documentation of ClustalOmega.
 #'
-#' Please view details on \code{msa::msa()} function which provides details
+#' Please view details on \code{\link[msa]{msa}}
+#' \code{\link[msa]{msaClustalOmega}} function which provides details
 #' about the parameters that adjust the alignment.
+#'
+#' @examples
+#' \dontrun{
+#' writeClustalOmega("BB11001", readType = "AA")
+#'
+#' writeAln("BB11002")
+#' writeClustalOmega("inst/extdata/Output/BB11002.mfa",
+#' readType = "AA", gapExtension = 2)
+#' }
 #'
 #' @export
 #' @import seqinr
 #' @importFrom utils tail
 
 writeClustalOmega <- function(inputSeqs, readType = c("AA", "DNA", "RNA"),
-                        fileName = NULL, directory = "data/Output",
+                        fileName = NULL, directory = "inst/extdata/Output",
                         cluster = "default", gapOpening = "default",
                         gapExtension = "default", maxiters = "default",
                         substitutionMatrix = "default", type = "default",

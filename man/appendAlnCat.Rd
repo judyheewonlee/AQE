@@ -19,7 +19,7 @@ The database with the alignment category appended to the
 alnCategory data frame contained in the database.
 }
 \description{
-\code{<function>} Append the alignment ID with the corresponding reference
+Append the alignment ID with the corresponding reference
 ID it belongs to into the provided database.
 }
 \keyword{internal}

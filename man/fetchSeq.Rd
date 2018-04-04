@@ -21,10 +21,19 @@ automatically set to FALSE.}
 The sequence of interest from the BaliBASE database.
 }
 \description{
-\code{<function>} Return a sequence of interest from BaliBASE collpased
+Return a sequence of interest from BaliBASE collpased
 or with gaps and/or in matrix format.
 }
 \section{Input}{
  The name of the sequence of interest as a character vector.
 }
 
+\examples{
+\dontrun{
+seqID <- "1aab_"
+
+seq <- fetchSeq(seqID, collapse = FALSE)
+seq2 <- fetchSeq(seqID, asMatrix = FALSE)
+}
+
+}

@@ -14,6 +14,13 @@ A list of sequence ID's are containedin the specified
 alignment ID.
 }
 \description{
-\code{<function>} Retrieve sequence ID's that are contained in the
+Retrieve sequence ID's that are contained in the
 alignment ID provided
+}
+\examples{
+\dontrun{
+seqIds <- getSeqID("BB11001")
+(seqIds)
+}
+
 }

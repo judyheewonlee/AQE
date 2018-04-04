@@ -4,7 +4,7 @@
 \alias{writeSeq}
 \title{writeSeq}
 \usage{
-writeSeq(seqID, fileName = NULL, directory = "data/Output",
+writeSeq(seqID, fileName = NULL, directory = "inst/extdata/Output",
   collapse = TRUE)
 }
 \arguments{
@@ -24,6 +24,17 @@ alignment. FALSE to maintain gaps. \code{collapse} is automatically set to
 TRUE.}
 }
 \description{
-\code{<function>} The writeSeq function returns a sequence from the
+The writeSeq function returns a sequence from the
 database generated from the Balibase suite.
+}
+\examples{
+\dontrun{
+seq <- "1ton_"
+fileName <- "1ton_seq"
+writeSeq(seq, fileName)
+
+seq <- "1aab_"
+writeSeq(seq, collapse = FALSE)
+}
+
 }

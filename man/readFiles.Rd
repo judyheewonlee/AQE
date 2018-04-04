@@ -15,7 +15,7 @@ The modified database containing alignments, alignment categories
 and sequence categories.
 }
 \description{
-\code{<function>} Find the .msf files contained in the BaliBASE suite and
+Find the .msf files contained in the BaliBASE suite and
 read each alignment. Call helper functions which modify the database
 provided. Return the modified database.
 }

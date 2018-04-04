@@ -9,7 +9,9 @@ getAlnID(referenceCat = NULL, seqID = NULL)
 \arguments{
 \item{referenceCat}{A reference category in the form of a character
 vector. \code{getAlnID} will return all alignment ID's that are
-contained in that reference category.}
+contained in that reference category. Note: "RV10", "RV12",
+"RV20", "RV30", "RV40", and "RV50" are the valid reference
+categories.}
 
 \item{seqID}{A sequence ID in the form of a character vector.
 \code{getAlnID} will return the alignment ID's containing the
@@ -21,7 +23,17 @@ specified reference category or a list of alnID's that contain
 the specified sequence ID's.
 }
 \description{
-\code{<function>} Retrieve alignment ID's in a corresponding reference
+Retrieve alignment ID's in a corresponding reference
 category of BaliBASE or retrieve the alignment ID's corresponding
 to a specific sequence ID.
+}
+\examples{
+\dontrun{
+alnIds <- getAlnID(seqID = "1aab_")
+(alnIds)
+
+alnIds <- getAlnID(referenceCat = "RV50")
+(alnIds)
+}
+
 }

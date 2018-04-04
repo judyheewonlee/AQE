@@ -19,7 +19,7 @@ fileName. Automatically set to NULL.}
 The generated file name.
 }
 \description{
-\code{<function>} The \code{nameFile} function generates a name for a
+The \code{nameFile} function generates a name for a
 file. If the passed fileName is NULL, then concatenate the
 \code{inputID} and \code{extension.} If not, then concatenate the
 passed \code{fileName} and \code{extension} and return

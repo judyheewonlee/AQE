@@ -1,6 +1,7 @@
 #' appendAlnCat
 #'
-#' \code{<function>} Append the alignment ID with the corresponding reference
+#' @description
+#' Append the alignment ID with the corresponding reference
 #' ID it belongs to into the provided database.
 #'
 #' @param database A database that will have the alignment ID and the

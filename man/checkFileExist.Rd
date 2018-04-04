@@ -11,12 +11,11 @@ checkFileExist(file)
 of a character vector.}
 }
 \description{
-\code{<function>} The \code{checkFileExist} function checks to see if
+The \code{checkFileExist} function checks to see if
 the filename requested is already existing in the directory. If
 it is, prompt the user if they would like to overwrite. If no,
 then stop the running functions.
-}
-\details{
+
 Details.
 }
 \keyword{internal}

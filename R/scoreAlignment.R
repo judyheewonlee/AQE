@@ -1,6 +1,7 @@
 #' scoreAlignment
 #'
-#' \code{<function>} The \code{scoreAlignment} function takes a reference
+#' @description
+#' The \code{scoreAlignment} function takes a reference
 #' alignment and a test alignment and returns an object of class "pairwise
 #' alignment comparison" (PAC) containing the sum of pairs and/or total
 #' column scores using the AlignStat package if \code{details} is set to TRUE.
@@ -28,9 +29,24 @@
 #' @return A PAC object containing providing the optimal pairwise column
 #' alignment of two alternative MSAs of the same sequences, and summary
 #' statistics of the differences between them. (Refer to the documentation
-#' for \code{compare_alignments} function for details on the output components
-#' in the AlignStat package.) Or a data frame containing only the total column
-#' score and sum of pairs score, depending on the value of \code{details}.
+#' for \code{\link[AlignStat]{compare_alignments}} function for details on
+#' the output components in the AlignStat package.) Or a data frame
+#' containing only the total column score and sum of pairs score,
+#' depending on the value of \code{details}.
+#'
+#' @examples
+#' \dontrun{
+#' writeClustalW("BB11001", readType = "AA", fileName = "testAln")
+#' writeAln("BB11001", fileName = "refAln")
+#'
+#' scoreAlignment("inst/extdata/Output/refAln.mfa",
+#' "inst/extdata/Output/testAln.mfa",
+#' SP = TRUE, CS = TRUE, details = FALSE)
+#'
+#' scoreAlignment("inst/extdata/Output/refAln.mfa",
+#' "inst/extdata/Output/testAln.mfa",
+#' SP = FALSE, CS = TRUE, details = TRUE)
+#' }
 #'
 #' @export
 #' @importFrom AlignStat compare_alignments
@@ -44,10 +60,23 @@ scoreAlignment <- function(reference, test, SP = FALSE, CS = FALSE,
   score <- AlignStat::compare_alignments(reference, test, SP, CS)
 
   if (!isTRUE(details)) {
-    score <- data.frame(Type = c("Total Column Score",
-                                 "Sum of Pairs Score"),
-                        Score = c(score$column_score$column.score,
-                                  score$sum_of_pairs$sum.of.pairs.score))
+    if (isTRUE(SP) && isTRUE(CS)) {
+      score <- data.frame(Type = c("Total Column Score",
+                                   "Sum of Pairs Score"),
+                          Score = c(score$column_score$column.score,
+                                    score$sum_of_pairs$sum.of.pairs.score))
+    }
+
+    else if (isTRUE(SP)) {
+      score <- data.frame(Type = c("Sum of Pairs Score"),
+                          Score = c(score$sum_of_pairs$sum.of.pairs.score))
+    }
+
+    else {
+      score <- data.frame(Type = c("Total Column Score"),
+                          Score = c(score$column_score$column.score))
+    }
+
   }
 
   return(score)

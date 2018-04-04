@@ -19,12 +19,11 @@ A \code{XStringSet} object corresponding to the \code{readType}
 input.
 }
 \description{
-\code{<function>} The convertXStringSet function converts a provided
+The convertXStringSet function converts a provided
 .mfa file into a XStringSet corresponding to the \code{readType} provided.
 If the provided readType is invalid, \code{convertXStringSet} will stop
 all running functions and prompt the user to input a valid readType.
-}
-\details{
+
 Details.
 }
 \keyword{internal}

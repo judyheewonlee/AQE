@@ -1,6 +1,7 @@
 #' fetchSeq
 #'
-#' \code{<function>} Return a sequence of interest from BaliBASE collpased
+#' @description
+#' Return a sequence of interest from BaliBASE collpased
 #' or with gaps and/or in matrix format.
 #'
 #' @section Input: The name of the sequence of interest as a character vector.
@@ -14,6 +15,14 @@
 #' @param asMatrix TRUE if the user would like the sequence in matrix form.
 #' FALSE will return a character vector of the sequence. \code{asMatrix} is
 #' automatically set to FALSE.
+#'
+#' @examples
+#' \dontrun{
+#' seqID <- "1aab_"
+#'
+#' seq <- fetchSeq(seqID, collapse = FALSE)
+#' seq2 <- fetchSeq(seqID, asMatrix = FALSE)
+#' }
 #'
 #' @return The sequence of interest from the BaliBASE database.
 #' @export

@@ -5,8 +5,8 @@
 \title{writeClustalW}
 \usage{
 writeClustalW(inputSeqs, readType = c("AA", "DNA", "RNA"), fileName = NULL,
-  directory = "data/Output", cluster = "default", gapOpening = "default",
-  gapExtension = "default", maxiters = "default",
+  directory = "inst/extdata/Output", cluster = "default",
+  gapOpening = "default", gapExtension = "default", maxiters = "default",
   substitutionMatrix = "default", type = "default", order = c("aligned",
   "input"), verbose = FALSE, help = FALSE, ...)
 }
@@ -68,15 +68,28 @@ the function quits after displaying the additional help information.}
 
 \item{...}{further parameters specific to ClustalW; An overview of parameters
 that are available in this interface is shown when calling \code{msaClustalW}
-with \code{help=TRUE}. For more details, see also the documentation of ClustalW.
-
-Please view details on \code{msa::msa()} function which provides details
-about the parameters that adjust the alignment.}
+with \code{help=TRUE}. For more details, see also the documentation of
+ClustalW.}
 }
 \description{
-\code{<function>} Write a multifasta file containing sequences that are
+Write a multifasta file containing sequences that are
 aligned by the ClustalW alignment algorithm. The user may search the
 referenceDB for a set of BaliBASE sequences by entering the alignment ID
 as input, or they may input a .mfa file containing the sequences in
 fasta format.
+}
+\examples{
+\dontrun{
+writeClustalW("BB11001", readType = "AA")
+
+writeAln("BB11002")
+writeClustalW("data/Output/BB11002.mfa",
+                        readType = "AA", gapExtension = 2)
+}
+
+}
+\seealso{
+Please view details on \code{\link[msa]{msa}} and
+\code{\link[msa]{msaClustalW}} function which provides details about
+the parameters that adjust the alignment.
 }

@@ -21,7 +21,7 @@ automatically set to FALSE.}
 The alignment of interest from the BaliBASE database.
 }
 \description{
-\code{<function>} Return an alignment of interest from BaliBASE.
+Return an alignment of interest from BaliBASE.
 }
 \section{Input}{
  The alignment ID of the alignment of interest from BaliBASE.
@@ -29,3 +29,11 @@ Additonal inputs are collapse and asMatrix which are automatically
 set to FALSE if not provided.
 }
 
+\examples{
+\dontrun{
+aln <- fetchAln("BB11001", collapse = FALSE)
+
+aln <- fetchAln("BB11001", asMatrix = FALSE)
+}
+
+}

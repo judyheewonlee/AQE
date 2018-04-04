@@ -1,6 +1,7 @@
 #' writeAln
 #'
-#' \code{<function>} The writeAln function returns an alignment from the
+#' @description
+#' The writeAln function returns an alignment from the
 #' database generated from the Balibase suite.
 #'
 #' @param alnID The Balibase alignment ID in the form of a character vector.
@@ -19,10 +20,18 @@
 #' alignment. FALSE to maintain gaps. \code{collapse} is automatically set to
 #' TRUE.
 #'
+#' @examples
+#' \dontrun{
+#' alnID <- "BB11001"
+#' writeAln(alnID)
+#'
+#' writeAln(alnID, fileName = "aln", collapse = FALSE)
+#' }
+#'
 #' @export
 #' @import seqinr
 
-writeAln <- function(alnID, fileName = NULL, directory = "data/Output",
+writeAln <- function(alnID, fileName = NULL, directory = "inst/extdata/Output",
                      collapse = TRUE) {
   referenceDB <- get("referenceDB", envir  = environment())
   if (is.null(referenceDB$alignments[[alnID]])) {
@@ -40,7 +49,7 @@ writeAln <- function(alnID, fileName = NULL, directory = "data/Output",
       alnFile <- paste(fileName, ".mfa", sep = "")
     }
 
-    # Place output files into data/Output directory in project folder
+    # Place output files into inst/extdata/Output directory in project folder
     directory <- paste(directory, "/", alnFile, sep = "")
 
     # Call checkFileExist to see if the file already exists

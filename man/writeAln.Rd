@@ -4,7 +4,7 @@
 \alias{writeAln}
 \title{writeAln}
 \usage{
-writeAln(alnID, fileName = NULL, directory = "data/Output",
+writeAln(alnID, fileName = NULL, directory = "inst/extdata/Output",
   collapse = TRUE)
 }
 \arguments{
@@ -25,6 +25,15 @@ alignment. FALSE to maintain gaps. \code{collapse} is automatically set to
 TRUE.}
 }
 \description{
-\code{<function>} The writeAln function returns an alignment from the
+The writeAln function returns an alignment from the
 database generated from the Balibase suite.
+}
+\examples{
+\dontrun{
+alnID <- "BB11001"
+writeAln(alnID)
+
+writeAln(alnID, fileName = "aln", collapse = FALSE)
+}
+
 }

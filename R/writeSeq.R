@@ -1,6 +1,7 @@
 #' writeSeq
 #'
-#' \code{<function>} The writeSeq function returns a sequence from the
+#' @description
+#' The writeSeq function returns a sequence from the
 #' database generated from the Balibase suite.
 #'
 #' @param seqID The Balibase seq ID in the form of a character vector.
@@ -18,10 +19,20 @@
 #' alignment. FALSE to maintain gaps. \code{collapse} is automatically set to
 #' TRUE.
 #'
+#' @examples
+#' \dontrun{
+#' seq <- "1ton_"
+#' fileName <- "1ton_seq"
+#' writeSeq(seq, fileName)
+#'
+#' seq <- "1aab_"
+#' writeSeq(seq, collapse = FALSE)
+#' }
+#'
 #' @export
 #' @import seqinr
 
-writeSeq <- function(seqID, fileName = NULL, directory = "data/Output", collapse = TRUE) {
+writeSeq <- function(seqID, fileName = NULL, directory = "inst/extdata/Output", collapse = TRUE) {
   referenceDB <- get("referenceDB", envir  = environment())
   refNum <- grep(seqID, referenceDB$seqCategory$seqID)
 

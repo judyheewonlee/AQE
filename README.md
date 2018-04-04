@@ -19,7 +19,7 @@ since it validates the many modern alignment algorithms being developed today.
 The AQE package was developed to simplify the process of validating alignments 
 using reference databases such as BaliBASE. 
 
-A sample script is provided in the "/data" folder and is labelled 
+A sample script is provided in the "/inst/extdata" folder and is labelled 
 "sampleScript.R". The script provides sample uses of each function in AQE.
 Additionally, there is a data model provided in the same folder as well to
 aid the understanding of how the database (stored in referenceDB.rda)
@@ -38,7 +38,6 @@ Some useful keyboard shortcuts for package authoring:
 
 Build and Reload Package:  'Cmd + Shift + B'  
 Update Documentation:      'Cmd + Shift + D' or devtools::document()  
-Test Package:              'Cmd + Shift + T'  
 Check Package:             'Cmd + Shift + E'  
 
 -----------------------------------------------

@@ -1,12 +1,19 @@
 #' getSeqID
 #'
-#' \code{<function>} Retrieve sequence ID's that are contained in the
+#' @description
+#' Retrieve sequence ID's that are contained in the
 #' alignment ID provided
 #'
 #' @param alnID An alignment ID in the form of a character vector.
 #'
 #' @return A list of sequence ID's are containedin the specified
 #' alignment ID.
+#'
+#' @examples
+#' \dontrun{
+#' seqIds <- getSeqID("BB11001")
+#' (seqIds)
+#' }
 #'
 #' @export
 

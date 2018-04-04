@@ -29,15 +29,31 @@ the alignments. If TRUE, a PAC is returned.}
 A PAC object containing providing the optimal pairwise column
 alignment of two alternative MSAs of the same sequences, and summary
 statistics of the differences between them. (Refer to the documentation
-for \code{compare_alignments} function for details on the output components
-in the AlignStat package.) Or a data frame containing only the total column
-score and sum of pairs score, depending on the value of \code{details}.
+for \code{\link[AlignStat]{compare_alignments}} function for details on
+the output components in the AlignStat package.) Or a data frame
+containing only the total column score and sum of pairs score,
+depending on the value of \code{details}.
 }
 \description{
-\code{<function>} The \code{scoreAlignment} function takes a reference
+The \code{scoreAlignment} function takes a reference
 alignment and a test alignment and returns an object of class "pairwise
 alignment comparison" (PAC) containing the sum of pairs and/or total
 column scores using the AlignStat package if \code{details} is set to TRUE.
 If the user would simply like the scores, \code{scoreAlignment} returns a
 data frame containing the total column score and sum of pairs score.
+}
+\examples{
+\dontrun{
+writeClustalW("BB11001", readType = "AA", fileName = "testAln")
+writeAln("BB11001", fileName = "refAln")
+
+scoreAlignment("inst/extdata/Output/refAln.mfa",
+"inst/extdata/Output/testAln.mfa",
+SP = TRUE, CS = TRUE, details = FALSE)
+
+scoreAlignment("inst/extdata/Output/refAln.mfa",
+"inst/extdata/Output/testAln.mfa",
+SP = FALSE, CS = TRUE, details = TRUE)
+}
+
 }

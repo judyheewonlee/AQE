@@ -1,6 +1,7 @@
 #' createDB
 #'
-#' \code{<function>} Produce a datamodel containing the contents from the
+#' @description
+#' Produce a datamodel containing the contents from the
 #' BaliBASE database. Refer to the data model to understand the structure
 #' of the reference data base.
 #'
@@ -19,7 +20,7 @@ createDB <- function() {
   referenceDB$alnCategory <- data.frame(alnID = c(), refID = c(), stringsAsFactors = FALSE)
 
   # Access refCategory.json to create referenceDB$category
-  refCat <- jsonlite::fromJSON("data/refCategory.json")
+  refCat <- jsonlite::fromJSON("inst/extdata/refCategory.json")
   referenceDB$category <- as.data.frame(refCat)
 
   # Call readFiles to fill the reference DB

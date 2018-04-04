@@ -1,6 +1,7 @@
 #' fetchAln
 #'
-#' \code{<function>} Return an alignment of interest from BaliBASE.
+#' @description
+#' Return an alignment of interest from BaliBASE.
 #'
 #' @section Input: The alignment ID of the alignment of interest from BaliBASE.
 #' Additonal inputs are collapse and asMatrix which are automatically
@@ -15,6 +16,13 @@
 #' @param asMatrix TRUE if the user would like the sequence in matrix form.
 #' FALSE will return a character vector of the sequence. \code{asMatrix} is
 #' automatically set to FALSE.
+#'
+#' @examples
+#' \dontrun{
+#' aln <- fetchAln("BB11001", collapse = FALSE)
+#'
+#' aln <- fetchAln("BB11001", asMatrix = FALSE)
+#' }
 #'
 #' @return The alignment of interest from the BaliBASE database.
 #' @export

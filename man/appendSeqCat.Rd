@@ -23,7 +23,7 @@ The database with the sequence ID and it's corresponding alignment
 ID appended to the data frame seqCategory contained in the the database.
 }
 \description{
-\code{<function>} Append the sequence ID and it's corresponding alignment
+Append the sequence ID and it's corresponding alignment
 ID to the provided database.
 }
 \keyword{internal}
